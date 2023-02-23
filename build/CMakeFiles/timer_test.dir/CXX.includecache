@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/workspace/MiniServer/code/buffer/buffer.cpp
+buffer.h
+/root/workspace/MiniServer/code/buffer/buffer.h
+
+/root/workspace/MiniServer/code/buffer/buffer.h
+assert.h
+-
+fcntl.h
+-
+sys/uio.h
+-
+unistd.h
+-
+atomic
+-
+string
+-
+vector
+-
+
