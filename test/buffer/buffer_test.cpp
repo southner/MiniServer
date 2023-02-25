@@ -118,7 +118,7 @@ TEST(Buffer, File) {
   }
 
   // TODO 验证两个文件相同
-  // 手动看了下是一样的(偷个懒捏)
+  // 手动看了下是一样的(偷个懒)
 }
 
 }  // namespace MiniServer
