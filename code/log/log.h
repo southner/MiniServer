@@ -74,7 +74,7 @@ class Log {
 // 使用 while(0) 把宏包起来,可以使其不受括号,分号等的影响
 #define LOG_BASE(level, format, ...)                                \
   do {                                                              \
-    MiniServer::Log* log = TimelineServer::Log::get_instance(); \
+    MiniServer::Log* log = MiniServer::Log::get_instance(); \
     if (log->get_level() <= level) {                                \
       log->write_buffer(level, format, ##__VA_ARGS__);              \
     }                                                               \
