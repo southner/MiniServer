@@ -4,6 +4,33 @@
 CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.o: ../code/buffer/buffer.cpp
 CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.o: ../code/buffer/buffer.h
 
+CMakeFiles/timer_test.dir/code/http/http_request.cpp.o: ../code/buffer/buffer.h
+CMakeFiles/timer_test.dir/code/http/http_request.cpp.o: ../code/json11/json11.hpp
+CMakeFiles/timer_test.dir/code/http/http_request.cpp.o: ../code/log/log.h
+CMakeFiles/timer_test.dir/code/http/http_request.cpp.o: ../code/log/log_queue.h
+CMakeFiles/timer_test.dir/code/http/http_request.cpp.o: ../code/http/http_request.cpp
+CMakeFiles/timer_test.dir/code/http/http_request.cpp.o: ../code/http/http_request.h
+
+CMakeFiles/timer_test.dir/code/json11/json11.cpp.o: ../code/json11/json11.cpp
+CMakeFiles/timer_test.dir/code/json11/json11.cpp.o: ../code/json11/json11.hpp
+
+CMakeFiles/timer_test.dir/code/log/log.cpp.o: ../code/buffer/buffer.h
+CMakeFiles/timer_test.dir/code/log/log.cpp.o: ../code/log/log_queue.h
+CMakeFiles/timer_test.dir/code/log/log.cpp.o: ../code/log/log.cpp
+CMakeFiles/timer_test.dir/code/log/log.cpp.o: ../code/log/log.h
+
+CMakeFiles/timer_test.dir/code/mux/mux.cpp.o: ../code/buffer/buffer.h
+CMakeFiles/timer_test.dir/code/mux/mux.cpp.o: ../code/log/log.h
+CMakeFiles/timer_test.dir/code/mux/mux.cpp.o: ../code/log/log_queue.h
+CMakeFiles/timer_test.dir/code/mux/mux.cpp.o: ../code/mux/mux.cpp
+CMakeFiles/timer_test.dir/code/mux/mux.cpp.o: ../code/mux/mux.h
+
+CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o: ../code/buffer/buffer.h
+CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o: ../code/log/log.h
+CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o: ../code/log/log_queue.h
+CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o: ../code/pool/sql_conn_pool.cpp
+CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o: ../code/pool/sql_conn_pool.h
+
 CMakeFiles/timer_test.dir/code/timer/timer.cpp.o: ../code/timer/timer.cpp
 CMakeFiles/timer_test.dir/code/timer/timer.cpp.o: ../code/timer/timer.h
 

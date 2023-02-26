@@ -68,6 +68,9 @@
         "iostream": "cpp",
         "variant": "cpp",
         "buffer": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "bitset": "cpp",
+        "regex": "cpp",
+        "shared_mutex": "cpp"
     }
 }

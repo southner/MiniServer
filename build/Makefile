@@ -56,30 +56,6 @@ CMAKE_BINARY_DIR = /root/workspace/MiniServer/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -135,6 +111,30 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/MiniServer/build/CMakeFiles /root/workspace/MiniServer/build/CMakeFiles/progress.marks
@@ -179,6 +179,32 @@ timer_test: cmake_check_build_system
 timer_test/fast:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/build
 .PHONY : timer_test/fast
+
+#=============================================================================
+# Target rules for targets named mux_test
+
+# Build rule for target.
+mux_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mux_test
+.PHONY : mux_test
+
+# fast build rule for target.
+mux_test/fast:
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/build
+.PHONY : mux_test/fast
+
+#=============================================================================
+# Target rules for targets named http_request_test
+
+# Build rule for target.
+http_request_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 http_request_test
+.PHONY : http_request_test
+
+# fast build rule for target.
+http_request_test/fast:
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/build
+.PHONY : http_request_test/fast
 
 #=============================================================================
 # Target rules for targets named buffer_test
@@ -252,6 +278,8 @@ code/buffer/buffer.o: code/buffer/buffer.cpp.o
 # target to build an object file
 code/buffer/buffer.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/buffer/buffer.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/buffer/buffer.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o
 .PHONY : code/buffer/buffer.cpp.o
 
@@ -262,6 +290,8 @@ code/buffer/buffer.i: code/buffer/buffer.cpp.i
 # target to preprocess a source file
 code/buffer/buffer.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/buffer/buffer.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/buffer/buffer.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.i
 .PHONY : code/buffer/buffer.cpp.i
 
@@ -272,8 +302,190 @@ code/buffer/buffer.s: code/buffer/buffer.cpp.s
 # target to generate assembly for a file
 code/buffer/buffer.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/buffer/buffer.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/buffer/buffer.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.s
 .PHONY : code/buffer/buffer.cpp.s
+
+code/http/http_request.o: code/http/http_request.cpp.o
+
+.PHONY : code/http/http_request.o
+
+# target to build an object file
+code/http/http_request.cpp.o:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_request.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_request.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_request.cpp.o
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o
+.PHONY : code/http/http_request.cpp.o
+
+code/http/http_request.i: code/http/http_request.cpp.i
+
+.PHONY : code/http/http_request.i
+
+# target to preprocess a source file
+code/http/http_request.cpp.i:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_request.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_request.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_request.cpp.i
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_request.cpp.i
+.PHONY : code/http/http_request.cpp.i
+
+code/http/http_request.s: code/http/http_request.cpp.s
+
+.PHONY : code/http/http_request.s
+
+# target to generate assembly for a file
+code/http/http_request.cpp.s:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_request.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_request.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_request.cpp.s
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_request.cpp.s
+.PHONY : code/http/http_request.cpp.s
+
+code/json11/json11.o: code/json11/json11.cpp.o
+
+.PHONY : code/json11/json11.o
+
+# target to build an object file
+code/json11/json11.cpp.o:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/json11/json11.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/json11/json11.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/json11/json11.cpp.o
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o
+.PHONY : code/json11/json11.cpp.o
+
+code/json11/json11.i: code/json11/json11.cpp.i
+
+.PHONY : code/json11/json11.i
+
+# target to preprocess a source file
+code/json11/json11.cpp.i:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/json11/json11.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/json11/json11.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/json11/json11.cpp.i
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/json11/json11.cpp.i
+.PHONY : code/json11/json11.cpp.i
+
+code/json11/json11.s: code/json11/json11.cpp.s
+
+.PHONY : code/json11/json11.s
+
+# target to generate assembly for a file
+code/json11/json11.cpp.s:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/json11/json11.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/json11/json11.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/json11/json11.cpp.s
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/json11/json11.cpp.s
+.PHONY : code/json11/json11.cpp.s
+
+code/log/log.o: code/log/log.cpp.o
+
+.PHONY : code/log/log.o
+
+# target to build an object file
+code/log/log.cpp.o:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/log/log.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/log/log.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/log/log.cpp.o
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/log/log.cpp.o
+.PHONY : code/log/log.cpp.o
+
+code/log/log.i: code/log/log.cpp.i
+
+.PHONY : code/log/log.i
+
+# target to preprocess a source file
+code/log/log.cpp.i:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/log/log.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/log/log.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/log/log.cpp.i
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/log/log.cpp.i
+.PHONY : code/log/log.cpp.i
+
+code/log/log.s: code/log/log.cpp.s
+
+.PHONY : code/log/log.s
+
+# target to generate assembly for a file
+code/log/log.cpp.s:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/log/log.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/log/log.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/log/log.cpp.s
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/log/log.cpp.s
+.PHONY : code/log/log.cpp.s
+
+code/mux/mux.o: code/mux/mux.cpp.o
+
+.PHONY : code/mux/mux.o
+
+# target to build an object file
+code/mux/mux.cpp.o:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/mux/mux.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/mux/mux.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/mux/mux.cpp.o
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o
+.PHONY : code/mux/mux.cpp.o
+
+code/mux/mux.i: code/mux/mux.cpp.i
+
+.PHONY : code/mux/mux.i
+
+# target to preprocess a source file
+code/mux/mux.cpp.i:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/mux/mux.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/mux/mux.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/mux/mux.cpp.i
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/mux/mux.cpp.i
+.PHONY : code/mux/mux.cpp.i
+
+code/mux/mux.s: code/mux/mux.cpp.s
+
+.PHONY : code/mux/mux.s
+
+# target to generate assembly for a file
+code/mux/mux.cpp.s:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/mux/mux.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/mux/mux.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/mux/mux.cpp.s
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/mux/mux.cpp.s
+.PHONY : code/mux/mux.cpp.s
+
+code/pool/sql_conn_pool.o: code/pool/sql_conn_pool.cpp.o
+
+.PHONY : code/pool/sql_conn_pool.o
+
+# target to build an object file
+code/pool/sql_conn_pool.cpp.o:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/pool/sql_conn_pool.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/pool/sql_conn_pool.cpp.o
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o
+.PHONY : code/pool/sql_conn_pool.cpp.o
+
+code/pool/sql_conn_pool.i: code/pool/sql_conn_pool.cpp.i
+
+.PHONY : code/pool/sql_conn_pool.i
+
+# target to preprocess a source file
+code/pool/sql_conn_pool.cpp.i:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/pool/sql_conn_pool.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/pool/sql_conn_pool.cpp.i
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.i
+.PHONY : code/pool/sql_conn_pool.cpp.i
+
+code/pool/sql_conn_pool.s: code/pool/sql_conn_pool.cpp.s
+
+.PHONY : code/pool/sql_conn_pool.s
+
+# target to generate assembly for a file
+code/pool/sql_conn_pool.cpp.s:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/pool/sql_conn_pool.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/pool/sql_conn_pool.cpp.s
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.s
+.PHONY : code/pool/sql_conn_pool.cpp.s
 
 code/timer/timer.o: code/timer/timer.cpp.o
 
@@ -282,6 +494,8 @@ code/timer/timer.o: code/timer/timer.cpp.o
 # target to build an object file
 code/timer/timer.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/timer/timer.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/timer/timer.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/timer/timer.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o
 .PHONY : code/timer/timer.cpp.o
 
@@ -292,6 +506,8 @@ code/timer/timer.i: code/timer/timer.cpp.i
 # target to preprocess a source file
 code/timer/timer.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/timer/timer.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/timer/timer.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/timer/timer.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/timer/timer.cpp.i
 .PHONY : code/timer/timer.cpp.i
 
@@ -302,6 +518,8 @@ code/timer/timer.s: code/timer/timer.cpp.s
 # target to generate assembly for a file
 code/timer/timer.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/timer/timer.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/timer/timer.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/timer/timer.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/timer/timer.cpp.s
 .PHONY : code/timer/timer.cpp.s
 
@@ -331,6 +549,60 @@ test/buffer/buffer_test.s: test/buffer/buffer_test.cpp.s
 test/buffer/buffer_test.cpp.s:
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/test/buffer/buffer_test.cpp.s
 .PHONY : test/buffer/buffer_test.cpp.s
+
+test/http/http_request_test.o: test/http/http_request_test.cpp.o
+
+.PHONY : test/http/http_request_test.o
+
+# target to build an object file
+test/http/http_request_test.cpp.o:
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/test/http/http_request_test.cpp.o
+.PHONY : test/http/http_request_test.cpp.o
+
+test/http/http_request_test.i: test/http/http_request_test.cpp.i
+
+.PHONY : test/http/http_request_test.i
+
+# target to preprocess a source file
+test/http/http_request_test.cpp.i:
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/test/http/http_request_test.cpp.i
+.PHONY : test/http/http_request_test.cpp.i
+
+test/http/http_request_test.s: test/http/http_request_test.cpp.s
+
+.PHONY : test/http/http_request_test.s
+
+# target to generate assembly for a file
+test/http/http_request_test.cpp.s:
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/test/http/http_request_test.cpp.s
+.PHONY : test/http/http_request_test.cpp.s
+
+test/mux/mux_test.o: test/mux/mux_test.cpp.o
+
+.PHONY : test/mux/mux_test.o
+
+# target to build an object file
+test/mux/mux_test.cpp.o:
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/test/mux/mux_test.cpp.o
+.PHONY : test/mux/mux_test.cpp.o
+
+test/mux/mux_test.i: test/mux/mux_test.cpp.i
+
+.PHONY : test/mux/mux_test.i
+
+# target to preprocess a source file
+test/mux/mux_test.cpp.i:
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/test/mux/mux_test.cpp.i
+.PHONY : test/mux/mux_test.cpp.i
+
+test/mux/mux_test.s: test/mux/mux_test.cpp.s
+
+.PHONY : test/mux/mux_test.s
+
+# target to generate assembly for a file
+test/mux/mux_test.cpp.s:
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/test/mux/mux_test.cpp.s
+.PHONY : test/mux/mux_test.cpp.s
 
 test/timer/timer_test.o: test/timer/timer_test.cpp.o
 
@@ -365,14 +637,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... timer_test"
+	@echo "... install/strip"
+	@echo "... mux_test"
+	@echo "... install/local"
+	@echo "... http_request_test"
 	@echo "... buffer_test"
 	@echo "... gmock_main"
 	@echo "... gmock"
@@ -381,12 +655,33 @@ help:
 	@echo "... code/buffer/buffer.o"
 	@echo "... code/buffer/buffer.i"
 	@echo "... code/buffer/buffer.s"
+	@echo "... code/http/http_request.o"
+	@echo "... code/http/http_request.i"
+	@echo "... code/http/http_request.s"
+	@echo "... code/json11/json11.o"
+	@echo "... code/json11/json11.i"
+	@echo "... code/json11/json11.s"
+	@echo "... code/log/log.o"
+	@echo "... code/log/log.i"
+	@echo "... code/log/log.s"
+	@echo "... code/mux/mux.o"
+	@echo "... code/mux/mux.i"
+	@echo "... code/mux/mux.s"
+	@echo "... code/pool/sql_conn_pool.o"
+	@echo "... code/pool/sql_conn_pool.i"
+	@echo "... code/pool/sql_conn_pool.s"
 	@echo "... code/timer/timer.o"
 	@echo "... code/timer/timer.i"
 	@echo "... code/timer/timer.s"
 	@echo "... test/buffer/buffer_test.o"
 	@echo "... test/buffer/buffer_test.i"
 	@echo "... test/buffer/buffer_test.s"
+	@echo "... test/http/http_request_test.o"
+	@echo "... test/http/http_request_test.i"
+	@echo "... test/http/http_request_test.s"
+	@echo "... test/mux/mux_test.o"
+	@echo "... test/mux/mux_test.i"
+	@echo "... test/mux/mux_test.s"
 	@echo "... test/timer/timer_test.o"
 	@echo "... test/timer/timer_test.i"
 	@echo "... test/timer/timer_test.s"

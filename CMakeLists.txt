@@ -61,7 +61,7 @@ foreach(test_file ${TEST_FILE})
     ${target}
     gtest_main
     # mysqlclient
-    # mysqlcppconn
+    mysqlcppconn
     # json11
   )
 
