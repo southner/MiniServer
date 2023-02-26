@@ -7,6 +7,11 @@
 #include <functional>
 #include <assert.h>
 
+/*
+线程池中包含一个线程函数的队列、一个锁、一个条件变量
+初始化时新建n个线程，线程内部从队列中取出任务运行，若队列为空，则使用信号量阻塞线程，留待以后添加任务时随机唤醒线程
+一开始是没有资源（任务）的，使用条件变量阻塞线程比较合适
+*/
 namespace MiniServer{
 class ThreadPool{
  public:

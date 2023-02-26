@@ -11,6 +11,11 @@
 
 #include "log/log.h"
 
+/*
+包含一个connection的vector，一把锁，一个信号量
+init时获得n个connection放入vector，使用信号量来对vector中剩余connection计数
+一开始有N个connection可以使用，使用信号量
+*/
 namespace MiniServer{
 
 #define MAX_URL_SIZE 200
