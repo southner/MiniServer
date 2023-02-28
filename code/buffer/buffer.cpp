@@ -103,11 +103,11 @@ namespace MiniServer
 
     ssize_t Buffer::read_fd(int fd, int *errno_)
     {
-        //数据报大小IPv4的数据报最大大小是65535字节 保证一定能全部读入
+        //IPv4的数据报最大大小是65535字节
         char buff[65536];
         struct iovec iov[2];
         const size_t writeable_bytes = buffer_.size() - write_pos_;
-
+        
         iov[0].iov_base = get_write_ptr();
         iov[0].iov_len = writeable_bytes;
         iov[1].iov_base = buff;

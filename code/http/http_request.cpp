@@ -44,6 +44,7 @@ namespace MiniServer
 
         while (end_ptr >= begin_ptr)
         {
+            //请求行 和 请求头
             const char *line_end = nullptr;
             if (state_ != PARSE_STATE::PS_BODY)
             {
@@ -52,6 +53,7 @@ namespace MiniServer
             }
             else
             {
+                //解析请求体
                 line_end = end_ptr;
                 line = string(begin_ptr, line_end);
                 {
@@ -66,6 +68,7 @@ namespace MiniServer
                     }
                     else
                     {
+                        //post请求必须包含Content-Length
                         LOG_ERROR("[%s] Missing key: Content-Length", LOG_TAG);
                         state_ = PARSE_STATE::PS_ERROR;
                         return PARSE_RESULT::PR_ERROR;
