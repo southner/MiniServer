@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o"
   "CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o"
+  "CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o"
   "CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o"
   "CMakeFiles/buffer_test.dir/code/log/log.cpp.o"
   "CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o"

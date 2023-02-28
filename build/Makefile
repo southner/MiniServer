@@ -194,6 +194,19 @@ mux_test/fast:
 .PHONY : mux_test/fast
 
 #=============================================================================
+# Target rules for targets named http_response_test
+
+# Build rule for target.
+http_response_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 http_response_test
+.PHONY : http_response_test
+
+# fast build rule for target.
+http_response_test/fast:
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/build
+.PHONY : http_response_test/fast
+
+#=============================================================================
 # Target rules for targets named http_request_test
 
 # Build rule for target.
@@ -279,6 +292,7 @@ code/buffer/buffer.o: code/buffer/buffer.cpp.o
 code/buffer/buffer.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/buffer/buffer.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/buffer/buffer.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/buffer/buffer.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o
 .PHONY : code/buffer/buffer.cpp.o
@@ -291,6 +305,7 @@ code/buffer/buffer.i: code/buffer/buffer.cpp.i
 code/buffer/buffer.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/buffer/buffer.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/buffer/buffer.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/buffer/buffer.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.i
 .PHONY : code/buffer/buffer.cpp.i
@@ -303,6 +318,7 @@ code/buffer/buffer.s: code/buffer/buffer.cpp.s
 code/buffer/buffer.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/buffer/buffer.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/buffer/buffer.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/buffer/buffer.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/buffer/buffer.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.s
 .PHONY : code/buffer/buffer.cpp.s
@@ -315,6 +331,7 @@ code/http/http_request.o: code/http/http_request.cpp.o
 code/http/http_request.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_request.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_request.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/http/http_request.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_request.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o
 .PHONY : code/http/http_request.cpp.o
@@ -327,6 +344,7 @@ code/http/http_request.i: code/http/http_request.cpp.i
 code/http/http_request.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_request.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_request.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/http/http_request.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_request.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_request.cpp.i
 .PHONY : code/http/http_request.cpp.i
@@ -339,9 +357,49 @@ code/http/http_request.s: code/http/http_request.cpp.s
 code/http/http_request.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_request.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_request.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/http/http_request.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_request.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_request.cpp.s
 .PHONY : code/http/http_request.cpp.s
+
+code/http/http_response.o: code/http/http_response.cpp.o
+
+.PHONY : code/http/http_response.o
+
+# target to build an object file
+code/http/http_response.cpp.o:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_response.cpp.o
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_response.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/http/http_response.cpp.o
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_response.cpp.o
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o
+.PHONY : code/http/http_response.cpp.o
+
+code/http/http_response.i: code/http/http_response.cpp.i
+
+.PHONY : code/http/http_response.i
+
+# target to preprocess a source file
+code/http/http_response.cpp.i:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_response.cpp.i
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_response.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/http/http_response.cpp.i
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_response.cpp.i
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_response.cpp.i
+.PHONY : code/http/http_response.cpp.i
+
+code/http/http_response.s: code/http/http_response.cpp.s
+
+.PHONY : code/http/http_response.s
+
+# target to generate assembly for a file
+code/http/http_response.cpp.s:
+	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/http/http_response.cpp.s
+	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/http/http_response.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/http/http_response.cpp.s
+	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/http/http_response.cpp.s
+	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/http/http_response.cpp.s
+.PHONY : code/http/http_response.cpp.s
 
 code/json11/json11.o: code/json11/json11.cpp.o
 
@@ -351,6 +409,7 @@ code/json11/json11.o: code/json11/json11.cpp.o
 code/json11/json11.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/json11/json11.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/json11/json11.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/json11/json11.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/json11/json11.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o
 .PHONY : code/json11/json11.cpp.o
@@ -363,6 +422,7 @@ code/json11/json11.i: code/json11/json11.cpp.i
 code/json11/json11.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/json11/json11.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/json11/json11.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/json11/json11.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/json11/json11.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/json11/json11.cpp.i
 .PHONY : code/json11/json11.cpp.i
@@ -375,6 +435,7 @@ code/json11/json11.s: code/json11/json11.cpp.s
 code/json11/json11.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/json11/json11.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/json11/json11.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/json11/json11.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/json11/json11.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/json11/json11.cpp.s
 .PHONY : code/json11/json11.cpp.s
@@ -387,6 +448,7 @@ code/log/log.o: code/log/log.cpp.o
 code/log/log.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/log/log.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/log/log.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/log/log.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/log/log.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/log/log.cpp.o
 .PHONY : code/log/log.cpp.o
@@ -399,6 +461,7 @@ code/log/log.i: code/log/log.cpp.i
 code/log/log.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/log/log.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/log/log.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/log/log.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/log/log.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/log/log.cpp.i
 .PHONY : code/log/log.cpp.i
@@ -411,6 +474,7 @@ code/log/log.s: code/log/log.cpp.s
 code/log/log.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/log/log.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/log/log.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/log/log.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/log/log.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/log/log.cpp.s
 .PHONY : code/log/log.cpp.s
@@ -423,6 +487,7 @@ code/mux/mux.o: code/mux/mux.cpp.o
 code/mux/mux.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/mux/mux.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/mux/mux.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/mux/mux.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/mux/mux.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o
 .PHONY : code/mux/mux.cpp.o
@@ -435,6 +500,7 @@ code/mux/mux.i: code/mux/mux.cpp.i
 code/mux/mux.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/mux/mux.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/mux/mux.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/mux/mux.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/mux/mux.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/mux/mux.cpp.i
 .PHONY : code/mux/mux.cpp.i
@@ -447,6 +513,7 @@ code/mux/mux.s: code/mux/mux.cpp.s
 code/mux/mux.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/mux/mux.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/mux/mux.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/mux/mux.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/mux/mux.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/mux/mux.cpp.s
 .PHONY : code/mux/mux.cpp.s
@@ -459,6 +526,7 @@ code/pool/sql_conn_pool.o: code/pool/sql_conn_pool.cpp.o
 code/pool/sql_conn_pool.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/pool/sql_conn_pool.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/pool/sql_conn_pool.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/pool/sql_conn_pool.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o
 .PHONY : code/pool/sql_conn_pool.cpp.o
@@ -471,6 +539,7 @@ code/pool/sql_conn_pool.i: code/pool/sql_conn_pool.cpp.i
 code/pool/sql_conn_pool.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/pool/sql_conn_pool.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/pool/sql_conn_pool.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/pool/sql_conn_pool.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.i
 .PHONY : code/pool/sql_conn_pool.cpp.i
@@ -483,6 +552,7 @@ code/pool/sql_conn_pool.s: code/pool/sql_conn_pool.cpp.s
 code/pool/sql_conn_pool.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/pool/sql_conn_pool.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/pool/sql_conn_pool.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/pool/sql_conn_pool.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/pool/sql_conn_pool.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.s
 .PHONY : code/pool/sql_conn_pool.cpp.s
@@ -495,6 +565,7 @@ code/timer/timer.o: code/timer/timer.cpp.o
 code/timer/timer.cpp.o:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/timer/timer.cpp.o
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/timer/timer.cpp.o
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/timer/timer.cpp.o
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/timer/timer.cpp.o
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o
 .PHONY : code/timer/timer.cpp.o
@@ -507,6 +578,7 @@ code/timer/timer.i: code/timer/timer.cpp.i
 code/timer/timer.cpp.i:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/timer/timer.cpp.i
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/timer/timer.cpp.i
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/timer/timer.cpp.i
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/timer/timer.cpp.i
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/timer/timer.cpp.i
 .PHONY : code/timer/timer.cpp.i
@@ -519,6 +591,7 @@ code/timer/timer.s: code/timer/timer.cpp.s
 code/timer/timer.cpp.s:
 	$(MAKE) -f CMakeFiles/timer_test.dir/build.make CMakeFiles/timer_test.dir/code/timer/timer.cpp.s
 	$(MAKE) -f CMakeFiles/mux_test.dir/build.make CMakeFiles/mux_test.dir/code/timer/timer.cpp.s
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/code/timer/timer.cpp.s
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/code/timer/timer.cpp.s
 	$(MAKE) -f CMakeFiles/buffer_test.dir/build.make CMakeFiles/buffer_test.dir/code/timer/timer.cpp.s
 .PHONY : code/timer/timer.cpp.s
@@ -576,6 +649,33 @@ test/http/http_request_test.s: test/http/http_request_test.cpp.s
 test/http/http_request_test.cpp.s:
 	$(MAKE) -f CMakeFiles/http_request_test.dir/build.make CMakeFiles/http_request_test.dir/test/http/http_request_test.cpp.s
 .PHONY : test/http/http_request_test.cpp.s
+
+test/http/http_response_test.o: test/http/http_response_test.cpp.o
+
+.PHONY : test/http/http_response_test.o
+
+# target to build an object file
+test/http/http_response_test.cpp.o:
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/test/http/http_response_test.cpp.o
+.PHONY : test/http/http_response_test.cpp.o
+
+test/http/http_response_test.i: test/http/http_response_test.cpp.i
+
+.PHONY : test/http/http_response_test.i
+
+# target to preprocess a source file
+test/http/http_response_test.cpp.i:
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/test/http/http_response_test.cpp.i
+.PHONY : test/http/http_response_test.cpp.i
+
+test/http/http_response_test.s: test/http/http_response_test.cpp.s
+
+.PHONY : test/http/http_response_test.s
+
+# target to generate assembly for a file
+test/http/http_response_test.cpp.s:
+	$(MAKE) -f CMakeFiles/http_response_test.dir/build.make CMakeFiles/http_response_test.dir/test/http/http_response_test.cpp.s
+.PHONY : test/http/http_response_test.cpp.s
 
 test/mux/mux_test.o: test/mux/mux_test.cpp.o
 
@@ -645,6 +745,7 @@ help:
 	@echo "... timer_test"
 	@echo "... install/strip"
 	@echo "... mux_test"
+	@echo "... http_response_test"
 	@echo "... install/local"
 	@echo "... http_request_test"
 	@echo "... buffer_test"
@@ -658,6 +759,9 @@ help:
 	@echo "... code/http/http_request.o"
 	@echo "... code/http/http_request.i"
 	@echo "... code/http/http_request.s"
+	@echo "... code/http/http_response.o"
+	@echo "... code/http/http_response.i"
+	@echo "... code/http/http_response.s"
 	@echo "... code/json11/json11.o"
 	@echo "... code/json11/json11.i"
 	@echo "... code/json11/json11.s"
@@ -679,6 +783,9 @@ help:
 	@echo "... test/http/http_request_test.o"
 	@echo "... test/http/http_request_test.i"
 	@echo "... test/http/http_request_test.s"
+	@echo "... test/http/http_response_test.o"
+	@echo "... test/http/http_response_test.i"
+	@echo "... test/http/http_response_test.s"
 	@echo "... test/mux/mux_test.o"
 	@echo "... test/mux/mux_test.i"
 	@echo "... test/mux/mux_test.s"

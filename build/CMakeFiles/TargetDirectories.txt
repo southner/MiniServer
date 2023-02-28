@@ -6,6 +6,7 @@
 /root/workspace/MiniServer/build/CMakeFiles/timer_test.dir
 /root/workspace/MiniServer/build/CMakeFiles/install/strip.dir
 /root/workspace/MiniServer/build/CMakeFiles/mux_test.dir
+/root/workspace/MiniServer/build/CMakeFiles/http_response_test.dir
 /root/workspace/MiniServer/build/CMakeFiles/install/local.dir
 /root/workspace/MiniServer/build/CMakeFiles/http_request_test.dir
 /root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir

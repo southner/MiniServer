@@ -11,6 +11,14 @@ CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o
  ../code/log/log_queue.h
  /root/workspace/MiniServer/code/http/http_request.cpp
  /root/workspace/MiniServer/code/http/http_request.h
+CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o
+ ../code/buffer/buffer.h
+ ../code/json11/json11.hpp
+ ../code/log/log.h
+ ../code/log/log_queue.h
+ /root/workspace/MiniServer/code/http/http_request.h
+ /root/workspace/MiniServer/code/http/http_response.cpp
+ /root/workspace/MiniServer/code/http/http_response.h
 CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o
  /root/workspace/MiniServer/code/json11/json11.cpp
  /root/workspace/MiniServer/code/json11/json11.hpp

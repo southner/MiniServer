@@ -51,7 +51,7 @@ namespace MiniServer
 
     void Buffer::move_write_ptr(size_t len)
     {
-        assert(get_readable_bytes() >= len);
+        assert((buffer_.size() - write_pos_) >= len);
         write_pos_ += len;
     }
 
