@@ -11,7 +11,7 @@ void Log::init(LOG_LEVEL level, const char* path, const char* suffix,
       // make_unique 在 C++14 才引入
       // log_queue_ = std::make_unique<LogQueue<string>>();
       log_queue_ = std::unique_ptr<LogQueue<string>>(new LogQueue<string>);
-      
+
       write_thread_ = std::make_unique<std::thread>(async_thread_func);
     }
   } else {
@@ -77,7 +77,8 @@ void Log::write_buffer(LOG_LEVEL level, const char* format, ...) {
 
     if (day_of_month_ != t.tm_mday) {
       // 因为日期更换日志文件
-      snprintf(new_file, LOG_NAME_LEN - 72, "%s/%s-0%s", path_.data(), tail, suffix_.data());
+      snprintf(new_file, LOG_NAME_LEN - 72, "%s/%s-0%s", path_.data(), tail,
+               suffix_.data());
       day_of_month_ = t.tm_mday;
       line_count_ = 0;
 
@@ -117,12 +118,11 @@ void Log::write_buffer(LOG_LEVEL level, const char* format, ...) {
     buffer_.make_space(2);
     buffer_.write_buffer("\n\0", 2);
 
-
     if (is_async_ && log_queue_ && !log_queue_->is_full()) {
-      //logqueue有空间，buffer->logqueue
+      // logqueue有空间，buffer->logqueue
       log_queue_->push(buffer_.read_all());
     } else {
-      //logqueue没有空间，存入文件，让logqueue开始pop
+      // logqueue没有空间，存入文件，让logqueue开始pop
       fputs(buffer_.get_read_ptr(), fp_);
       flush();
     }
@@ -198,4 +198,4 @@ void Log::log_message_level(LOG_LEVEL level) {
   }
 }
 
-} 
+}  // namespace MiniServer
