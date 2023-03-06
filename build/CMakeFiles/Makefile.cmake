@@ -74,11 +74,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/timer_test.dir/DependInfo.cmake"
-  "CMakeFiles/mux_test.dir/DependInfo.cmake"
-  "CMakeFiles/http_response_test.dir/DependInfo.cmake"
-  "CMakeFiles/http_request_test.dir/DependInfo.cmake"
+  "CMakeFiles/MiniServer.dir/DependInfo.cmake"
   "CMakeFiles/buffer_test.dir/DependInfo.cmake"
+  "CMakeFiles/http_request_test.dir/DependInfo.cmake"
+  "CMakeFiles/http_response_test.dir/DependInfo.cmake"
+  "CMakeFiles/mux_test.dir/DependInfo.cmake"
+  "CMakeFiles/sql_conn_pool_test.dir/DependInfo.cmake"
+  "CMakeFiles/timer_test.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"

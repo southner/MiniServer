@@ -4,6 +4,15 @@
 CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o
  /root/workspace/MiniServer/code/buffer/buffer.cpp
  /root/workspace/MiniServer/code/buffer/buffer.h
+CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o
+ ../code/buffer/buffer.h
+ ../code/json11/json11.hpp
+ ../code/log/log.h
+ ../code/log/log_queue.h
+ /root/workspace/MiniServer/code/http/http_conn.cpp
+ /root/workspace/MiniServer/code/http/http_conn.h
+ /root/workspace/MiniServer/code/http/http_request.h
+ /root/workspace/MiniServer/code/http/http_response.h
 CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o
  ../code/buffer/buffer.h
  ../code/json11/json11.hpp
@@ -39,6 +48,20 @@ CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o
  ../code/log/log_queue.h
  /root/workspace/MiniServer/code/pool/sql_conn_pool.cpp
  /root/workspace/MiniServer/code/pool/sql_conn_pool.h
+CMakeFiles/buffer_test.dir/code/server/server.cpp.o
+ ../code/buffer/buffer.h
+ ../code/http/http_conn.h
+ ../code/http/http_request.h
+ ../code/http/http_response.h
+ ../code/json11/json11.hpp
+ ../code/log/log.h
+ ../code/log/log_queue.h
+ ../code/mux/mux.h
+ ../code/pool/sql_conn_pool.h
+ ../code/pool/thread_pool.h
+ ../code/timer/timer.h
+ /root/workspace/MiniServer/code/server/server.cpp
+ /root/workspace/MiniServer/code/server/server.h
 CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o
  /root/workspace/MiniServer/code/timer/timer.cpp
  /root/workspace/MiniServer/code/timer/timer.h

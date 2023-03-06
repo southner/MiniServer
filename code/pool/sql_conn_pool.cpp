@@ -1,12 +1,14 @@
 #include "sql_conn_pool.h"
+const static char LOG_TAG[] = "SQL_CONN_POOL";
 
 namespace MiniServer {
-SQLConnPool::SQLConnPool() { Max_CONN_ = 0; }
+SQLConnPool::SQLConnPool() { MAX_CONN_ = 0; }
 SQLConnPool::~SQLConnPool() { close(); }
 SQLConnPool *MiniServer::SQLConnPool::get_instance() {
   static SQLConnPool conn_pool;
   return &conn_pool;
 }
+
 sql::Connection *SQLConnPool::get_connect() {
   if (connections_.empty()) {
     return nullptr;
@@ -22,6 +24,7 @@ sql::Connection *SQLConnPool::get_connect() {
   }
   return conn;
 }
+
 void SQLConnPool::free_connect(sql::Connection *conn) {
   assert(conn);
   std::lock_guard<std::mutex> locker(mtx_);
@@ -30,10 +33,12 @@ void SQLConnPool::free_connect(sql::Connection *conn) {
   // 信号量+1
   sem_post(&sem_id_);
 }
+
 int SQLConnPool::get_free_connect_count() {
   std::lock_guard<std::mutex> locker(mtx_);
   return connections_.size();
 }
+
 void SQLConnPool::init(const char *host, int port, const char *user,
                        const char *pwd, const char *db_name,
                        int max_conn_count) {
@@ -56,7 +61,16 @@ void SQLConnPool::init(const char *host, int port, const char *user,
 
     connections_.push_back(conn);
   }
+
+  MAX_CONN_ = max_conn_count;
+
+  // pshared 控制信号量的类型，值为 0 代表该信号量用于多线程间的同步，
+  //   值如果大于 0 表示可以共享，用于多个相关进程间的同步
+  sem_init(&sem_id_, 0, MAX_CONN_);
+
+  LOG_INFO("[%s] Mysql init successfully", LOG_TAG);
 }
+
 void SQLConnPool::close() {
   std::lock_guard<std::mutex> locker(mtx_);
   while (!connections_.empty()) {

@@ -37,7 +37,7 @@ class SQLConnPool {
  private:
   SQLConnPool();
   ~SQLConnPool();
-  int Max_CONN_;
+  int MAX_CONN_;
   std::vector<sql::Connection*> connections_;
   std::mutex mtx_;
   sem_t sem_id_;

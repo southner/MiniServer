@@ -83,9 +83,22 @@ CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/MiniServer/code/buffer/buffer.cpp -o CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.s
 
+CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o: CMakeFiles/buffer_test.dir/flags.make
+CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o: ../code/http/http_conn.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o -c /root/workspace/MiniServer/code/http/http_conn.cpp
+
+CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/MiniServer/code/http/http_conn.cpp > CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.i
+
+CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/MiniServer/code/http/http_conn.cpp -o CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.s
+
 CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o: ../code/http/http_request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o -c /root/workspace/MiniServer/code/http/http_request.cpp
 
 CMakeFiles/buffer_test.dir/code/http/http_request.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/buffer_test.dir/code/http/http_request.cpp.s: cmake_force
 
 CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o: ../code/http/http_response.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o -c /root/workspace/MiniServer/code/http/http_response.cpp
 
 CMakeFiles/buffer_test.dir/code/http/http_response.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/buffer_test.dir/code/http/http_response.cpp.s: cmake_force
 
 CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o: ../code/json11/json11.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o -c /root/workspace/MiniServer/code/json11/json11.cpp
 
 CMakeFiles/buffer_test.dir/code/json11/json11.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/buffer_test.dir/code/json11/json11.cpp.s: cmake_force
 
 CMakeFiles/buffer_test.dir/code/log/log.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/log/log.cpp.o: ../code/log/log.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/buffer_test.dir/code/log/log.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/buffer_test.dir/code/log/log.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/log/log.cpp.o -c /root/workspace/MiniServer/code/log/log.cpp
 
 CMakeFiles/buffer_test.dir/code/log/log.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/buffer_test.dir/code/log/log.cpp.s: cmake_force
 
 CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o: ../code/mux/mux.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o -c /root/workspace/MiniServer/code/mux/mux.cpp
 
 CMakeFiles/buffer_test.dir/code/mux/mux.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/buffer_test.dir/code/mux/mux.cpp.s: cmake_force
 
 CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o: ../code/pool/sql_conn_pool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o -c /root/workspace/MiniServer/code/pool/sql_conn_pool.cpp
 
 CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.i: cmake_force
@@ -161,9 +174,22 @@ CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/MiniServer/code/pool/sql_conn_pool.cpp -o CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.s
 
+CMakeFiles/buffer_test.dir/code/server/server.cpp.o: CMakeFiles/buffer_test.dir/flags.make
+CMakeFiles/buffer_test.dir/code/server/server.cpp.o: ../code/server/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/buffer_test.dir/code/server/server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/server/server.cpp.o -c /root/workspace/MiniServer/code/server/server.cpp
+
+CMakeFiles/buffer_test.dir/code/server/server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buffer_test.dir/code/server/server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/MiniServer/code/server/server.cpp > CMakeFiles/buffer_test.dir/code/server/server.cpp.i
+
+CMakeFiles/buffer_test.dir/code/server/server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buffer_test.dir/code/server/server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/MiniServer/code/server/server.cpp -o CMakeFiles/buffer_test.dir/code/server/server.cpp.s
+
 CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o: CMakeFiles/buffer_test.dir/flags.make
 CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o: ../code/timer/timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o -c /root/workspace/MiniServer/code/timer/timer.cpp
 
 CMakeFiles/buffer_test.dir/code/timer/timer.cpp.i: cmake_force
@@ -178,12 +204,14 @@ CMakeFiles/buffer_test.dir/code/timer/timer.cpp.s: cmake_force
 buffer_test_OBJECTS = \
 "CMakeFiles/buffer_test.dir/test/buffer/buffer_test.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o" \
+"CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/log/log.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o" \
+"CMakeFiles/buffer_test.dir/code/server/server.cpp.o" \
 "CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o"
 
 # External object files for target buffer_test
@@ -191,18 +219,20 @@ buffer_test_EXTERNAL_OBJECTS =
 
 buffer_test: CMakeFiles/buffer_test.dir/test/buffer/buffer_test.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o
+buffer_test: CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/log/log.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o
+buffer_test: CMakeFiles/buffer_test.dir/code/server/server.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o
 buffer_test: CMakeFiles/buffer_test.dir/build.make
 buffer_test: lib/libgtest_main.a
 buffer_test: lib/libgtest.a
 buffer_test: CMakeFiles/buffer_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable buffer_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/workspace/MiniServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable buffer_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/buffer_test.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -D TEST_TARGET=buffer_test -D TEST_EXECUTABLE=/root/workspace/MiniServer/build/buffer_test -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/root/workspace/MiniServer/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=buffer_test_TESTS -D CTEST_FILE=/root/workspace/MiniServer/build/buffer_test[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -P /usr/share/cmake-3.16/Modules/GoogleTestAddTests.cmake
 

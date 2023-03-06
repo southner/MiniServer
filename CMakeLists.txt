@@ -22,22 +22,22 @@ FetchContent_MakeAvailable(googletest)
 # 添加子目录和头文件
 include_directories("code")
 file(GLOB TIMELINE_SERVER_SRC "code/*/*.cpp")
-# file(GLOB TIMELINE_SERVER_MAIN "code/*.cpp")
+file(GLOB TIMELINE_SERVER_MAIN "code/*.cpp")
 
 #设置可执行文件目标
-# set(executable_target "TimelineServer")
-# set(lib_target "gtest_main" "mysqlclient" "mysqlcppconn" "json11")
+set(executable_target "MiniServer")
+set(lib_target "gtest_main" "mysqlclient" "mysqlcppconn")
 
-# add_executable(
-#   ${executable_target}
-#   ${TIMELINE_SERVER_MAIN}
-#   ${TIMELINE_SERVER_SRC}
-# )
+add_executable(
+  ${executable_target}
+  ${TIMELINE_SERVER_MAIN}
+  ${TIMELINE_SERVER_SRC}
+)
 
-# target_link_libraries(
-#   ${executable_target}
-#   ${lib_target}
-# )
+target_link_libraries(
+  ${executable_target}
+  ${lib_target}
+)
 
 include(GoogleTest)
 

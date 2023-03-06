@@ -5,12 +5,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/root/workspace/MiniServer/code/buffer/buffer.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/buffer/buffer.cpp.o"
+  "/root/workspace/MiniServer/code/http/http_conn.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/http/http_conn.cpp.o"
   "/root/workspace/MiniServer/code/http/http_request.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/http/http_request.cpp.o"
   "/root/workspace/MiniServer/code/http/http_response.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/http/http_response.cpp.o"
   "/root/workspace/MiniServer/code/json11/json11.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/json11/json11.cpp.o"
   "/root/workspace/MiniServer/code/log/log.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/log/log.cpp.o"
   "/root/workspace/MiniServer/code/mux/mux.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/mux/mux.cpp.o"
   "/root/workspace/MiniServer/code/pool/sql_conn_pool.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/pool/sql_conn_pool.cpp.o"
+  "/root/workspace/MiniServer/code/server/server.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/server/server.cpp.o"
   "/root/workspace/MiniServer/code/timer/timer.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/code/timer/timer.cpp.o"
   "/root/workspace/MiniServer/test/buffer/buffer_test.cpp" "/root/workspace/MiniServer/build/CMakeFiles/buffer_test.dir/test/buffer/buffer_test.cpp.o"
   )
