@@ -49,7 +49,7 @@ class SQLConn {
     pool_ = SQLConnPool::get_instance();
     conn = pool_->get_connect();
   }
-  bool is_valid() { return (conn == nullptr); }
+  bool is_valid() { return (conn != nullptr); }
 
   ~SQLConn() { pool_->free_connect(conn); }
 

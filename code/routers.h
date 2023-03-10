@@ -30,5 +30,11 @@ struct task {
   }
 };
 
+bool router_register(const HttpRequest& request, Buffer& buffer);
 bool router_login(const HttpRequest& request, Buffer& buffer);
 bool router_logout(const HttpRequest& request, Buffer& buffer);
+bool router_add(const HttpRequest& request, Buffer& buffer);
+bool router_query(const HttpRequest& request, Buffer& buffer);
+bool router_random_query(const HttpRequest& request, Buffer& buffer);
+bool router_update(const HttpRequest& request, Buffer& buffer);
+bool router_delete(const HttpRequest& request, Buffer& buffer);
