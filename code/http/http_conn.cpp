@@ -22,7 +22,7 @@ void HttpConn::init(int sock_fd, const sockaddr_in sock_addr) {
   sock_fd_ = sock_fd;
   sock_addr_ = sock_addr;
   is_closed_ = false;
-
+  
   // buffer 清理
   read_buffer_.clear();
   write_buffer_.clear();

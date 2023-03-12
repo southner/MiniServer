@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS secrets(
                 }
               ]
         // add
+        "secret_id": "xxx"
         //add完成后再次执行一下query
         // 发生错误时
         "error_message" :"xxx",
@@ -145,4 +146,75 @@ fetch(new Request('action/login',{
     headers: {'Content-Type': 'application/json'},
     body:"{\"action\":\"login\", \"action_info\": {\"user\":\"ztt\", \"passwd\": \"12345\"}}"
 })).then((resp)=>{console.log(resp)})
+```
+
+- logout
+```js
+fetch(new Request('action/logout',{
+    method:'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body:"{\"action\":\"logout\", \"action_info\": {\"action_token\":\"PKdhtXMmr29n3L0K99eM\"}}"
+})).then((resp)=>{console.log(resp)})
+```
+
+- add
+```js
+fetch(new Request('action/add',{
+    method:'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body:"{\"action\":\"add\", \"action_info\": {\"action_token\":\"PKdhtXMmr29n3L0K99eM\", \"time\": \"2023-6-24\", \"secret\":\"我想出去玩!\"}}"
+})).then((resp)=>{console.log(resp)})
+```
+
+- query
+```js
+fetch(new Request('action/query',{
+    method:'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body:"{\"action\":\"query\", \"action_info\": {\"action_token\":\"PKdhtXMmr29n3L0K99eM\"}}"
+})).then(res => res.blob()).then(
+    (resp)=>{let reader = new FileReader();
+        reader.onload = () => {
+            var text = reader.result;
+            console.log(text);
+        }
+        reader.readAsText(resp, 'utf-8');})
+```
+
+- random_query
+```js
+fetch(new Request('action/random_query',{
+    method:'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body:"{\"action\":\"random_query\", \"action_info\": {\"action_token\":\"PKdhtXMmr29n3L0K99eM\"}}"
+})).then(res => res.blob()).then(
+    (resp)=>{let reader = new FileReader();
+        reader.onload = () => {
+            var text = reader.result;
+            console.log(text);
+        }
+        reader.readAsText(resp, 'utf-8');})
+```
+
+- update
+```js
+fetch(new Request('action/update',{
+    method:'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body:"{\"action\":\"update\", \"action_info\": {\"action_token\":\"PKdhtXMmr29n3L0K99eM\", \"time\": \"2023-6-24\", \"secret\":\"我想出去玩!\", \"secret_id\":1}}"
+})).then((resp)=>{console.log(resp)})
+```
+
+- delete
+```js
+fetch(new Request('action/delete',{
+    method:'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body:"{\"action\":\"delete\", \"action_info\": {\"action_token\":\"PKdhtXMmr29n3L0K99eM\", \"secret_id\":1}}"
+})).then((resp)=>{console.log(resp)})
+```
+
+浏览器调试
+```
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir=C:\Program Files\Google\Chrome\Application\userdata
 ```

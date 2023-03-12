@@ -71,6 +71,8 @@
         "cinttypes": "cpp",
         "bitset": "cpp",
         "regex": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "locale": "cpp",
+        "codecvt": "cpp"
     }
 }

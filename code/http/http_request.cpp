@@ -76,7 +76,7 @@ HttpRequest::PARSE_RESULT HttpRequest::parse(Buffer &buffer) {
       case PARSE_STATE::PS_REQUEST_LINES:
         state_ = parse_request_line(line);
         break;
-
+      
       case PARSE_STATE::PS_HEADERS:
         state_ = parse_header(line);
         break;
@@ -140,9 +140,10 @@ HttpRequest::PARSE_STATE HttpRequest::parse_request_line(const string &line) {
     method_ = sub_match[1];
     path_ = sub_match[2];
     version_ = sub_match[3];
+    LOG_ERROR("[%s]normal [%s]!", LOG_TAG,line.data());
     return PARSE_STATE::PS_HEADERS;
   }
-
+  LOG_ERROR("[%s] [%s]!", LOG_TAG,line.data());
   LOG_ERROR("[%s] Parse request line error!", LOG_TAG);
   return PARSE_STATE::PS_ERROR;
 }

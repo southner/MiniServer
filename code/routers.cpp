@@ -5,7 +5,8 @@ unordered_map<string, uint64_t> online_lists_token2id;
 
 const static char LOG_TAG[] = "ROUTERS";
 
-string token_generator(int length) {
+string token_generator(int length)
+{
   static string charset =
       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
   string result;
@@ -17,7 +18,8 @@ string token_generator(int length) {
   return result;
 }
 
-bool router_register(const HttpRequest& request, Buffer& buffer) {
+bool router_register(const HttpRequest &request, Buffer &buffer)
+{
   Json::object result;
 
   string user_name = request.query_post("action_info")["user"].string_value();
@@ -25,7 +27,8 @@ bool router_register(const HttpRequest& request, Buffer& buffer) {
       request.query_post("action_info")["passwd"].string_value();
 
   // 检查用户名/密码
-  if (user_name.empty() || user_passwd.empty()) {
+  if (user_name.empty() || user_passwd.empty())
+  {
     LOG_DEBUG("[%s] Empty Username or Empty Passwd!", LOG_TAG);
 
     result["action_result"] = false;
@@ -41,7 +44,8 @@ bool router_register(const HttpRequest& request, Buffer& buffer) {
 
   // 创建数据库连接
   MiniServer::SQLConn conn;
-  if (!conn.is_valid()) {
+  if (!conn.is_valid())
+  {
     LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
     // 直接返回 502 状态码
     return false;
@@ -56,19 +60,23 @@ bool router_register(const HttpRequest& request, Buffer& buffer) {
   // 查询结果
   uint64_t user_id = 0;
   std::shared_ptr<sql::ResultSet> sql_result(sql_pstmt->executeQuery());
-  if (sql_result->rowsCount() == 1) {
+  if (sql_result->rowsCount() == 1)
+  {
     LOG_WARN("[%s] 已存在该用户: %s", LOG_TAG, user_name.data());
     result["action_result"] = false;
     result["result_info"] =
         Json::object{{"error_info", "User has been registered!"}};
     buffer.write_buffer(((Json)result).dump());
     return true;
-  } else if (sql_result->rowsCount() > 1) {
+  }
+  else if (sql_result->rowsCount() > 1)
+  {
     LOG_WARN("[%s] 存在重名用户: %s", LOG_TAG, user_name.data());
     // 返回 500
     return false;
   }
-  if (sql_result->rowsCount() == 0) {
+  if (sql_result->rowsCount() == 0)
+  {
     // 没有该用户, 新建用户
     std::shared_ptr<sql::PreparedStatement> sql_pstmt_create_user(
         conn.conn->prepareStatement(
@@ -80,7 +88,8 @@ bool router_register(const HttpRequest& request, Buffer& buffer) {
     LOG_DEBUG("[%s], User[%s] created successfully!", LOG_TAG,
               user_name.data());
 
-    try {
+    try
+    {
       std::shared_ptr<sql::PreparedStatement> sql_pstmt_get_id(
           conn.conn->prepareStatement("select last_insert_id() as user_id;"));
 
@@ -89,10 +98,14 @@ bool router_register(const HttpRequest& request, Buffer& buffer) {
 
       sql_result_get_id->next();
       user_id = sql_result_get_id->getUInt64("user_id");
-    } catch (const sql::SQLException& e) {
+    }
+    catch (const sql::SQLException &e)
+    {
       LOG_ERROR("[%s] SQLException: %s", LOG_TAG, e.what());
       return false;
-    } catch (const std::exception& e) {
+    }
+    catch (const std::exception &e)
+    {
       LOG_ERROR("[%s] Exception: %s", LOG_TAG, e.what());
       return false;
     }
@@ -113,7 +126,8 @@ bool router_register(const HttpRequest& request, Buffer& buffer) {
   return true;
 }
 
-bool router_login(const HttpRequest& request, Buffer& buffer) {
+bool router_login(const HttpRequest &request, Buffer &buffer)
+{
   Json::object result;
 
   string user_name = request.query_post("action_info")["user"].string_value();
@@ -121,7 +135,8 @@ bool router_login(const HttpRequest& request, Buffer& buffer) {
       request.query_post("action_info")["passwd"].string_value();
 
   // 检查用户名/密码
-  if (user_name.empty() || user_passwd.empty()) {
+  if (user_name.empty() || user_passwd.empty())
+  {
     LOG_DEBUG("[%s] Empty Username or Empty Passwd!", LOG_TAG);
 
     result["action_result"] = false;
@@ -135,7 +150,8 @@ bool router_login(const HttpRequest& request, Buffer& buffer) {
 
   // 创建数据库连接
   MiniServer::SQLConn conn;
-  if (!conn.is_valid()) {
+  if (!conn.is_valid())
+  {
     LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
     // 直接返回 502 状态码
     return false;
@@ -150,13 +166,15 @@ bool router_login(const HttpRequest& request, Buffer& buffer) {
   // 查询结果
   uint64_t user_id = 0;
   std::shared_ptr<sql::ResultSet> sql_result(sql_pstmt->executeQuery());
-  if (sql_result->rowsCount() > 1) {
+  if (sql_result->rowsCount() > 1)
+  {
     LOG_WARN("[%s] 存在重名用户: %s", LOG_TAG, user_name.data());
     // 返回 502
     return false;
   }
 
-  if (sql_result->rowsCount() == 0) {
+  if (sql_result->rowsCount() == 0)
+  {
     // 没有该用户
     LOG_WARN("[%s] 不存在该用户: %s", LOG_TAG, user_name.data());
     result["action_result"] = false;
@@ -164,16 +182,20 @@ bool router_login(const HttpRequest& request, Buffer& buffer) {
         Json::object{{"error_info", "sorry, this user is not found!"}};
     buffer.write_buffer(((Json)result).dump());
     return true;
-    
-  } else {
+  }
+  else
+  {
     sql_result->next();
     // 用户存在,验证密码
     string temp = sql_result->getString("user_passwd").asStdString();
-    if (temp == user_passwd) {
+    if (temp == user_passwd)
+    {
       // 用户验证成功
       LOG_DEBUG("User[%s] login successfully!", user_name.data());
       user_id = sql_result->getUInt64("user_id");
-    } else {
+    }
+    else
+    {
       // 用户验证失败
       result["action_result"] = false;
       result["result_info"] = Json::object{{"error_info", "Wrong password!"}};
@@ -200,11 +222,13 @@ bool router_login(const HttpRequest& request, Buffer& buffer) {
   return true;
 }
 
-bool router_logout(const HttpRequest& request, Buffer& buffer) {
+bool router_logout(const HttpRequest &request, Buffer &buffer)
+{
   Json::object result;
   string action_token =
       request.query_post("action_info")["action_token"].string_value();
-  if (online_lists_token2id.count(action_token) == 0) {
+  if (online_lists_token2id.count(action_token) == 0)
+  {
     // 用户未登录
     result["action_result"] = false;
     result["result_info"] = Json::object{{"error_info", "Not logged in"}};
@@ -227,14 +251,310 @@ bool router_logout(const HttpRequest& request, Buffer& buffer) {
   return true;
 }
 
-bool router_add(const HttpRequest& request, Buffer& buffer) { return false; }
+bool router_add(const HttpRequest &request, Buffer &buffer)
+{
+  Json::object result;
+  string action_token =
+      request.query_post("action_info")["action_token"].string_value();
+  if (online_lists_token2id.count(action_token) == 0)
+  {
+    // 用户未登录
+    result["action_result"] = false;
+    result["result_info"] = Json::object{{"error_info", "Not logged in"}};
+    buffer.write_buffer(((Json)result).dump());
 
-bool router_query(const HttpRequest& request, Buffer& buffer) { return false; }
+    LOG_DEBUG("[%s] User(action_token:[%s]) add failed!(not logged in)",
+              LOG_TAG, action_token.data());
+    return true;
+  }
 
-bool router_random_query(const HttpRequest& request, Buffer& buffer) {
-  return false;
+  // 创建数据库连接
+  MiniServer::SQLConn conn;
+  if (!conn.is_valid())
+  {
+    LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
+    // 直接返回 500 状态码
+    return false;
+  }
+
+  // 准备add语句
+  uint64_t user_id = online_lists_token2id[action_token];
+  string time = request.query_post("action_info")["time"].string_value();
+  string secret = request.query_post("action_info")["secret"].string_value();
+
+  std::shared_ptr<sql::PreparedStatement> sql_pstmt(
+      conn.conn->prepareStatement("insert into secrets(user_id, time, "
+                                  "secret) values(?, ?, ?)"));
+
+  sql_pstmt->setUInt64(1, user_id);
+  sql_pstmt->setString(2, time);
+  sql_pstmt->setString(3, secret);
+
+  // 执行add
+  // 这个execute函数有点抽风,从结果看命名插入了但还是返回了false
+  // 没找到C++的文档,Java的文档里是这么说的
+  // true if the first result is a ResultSet object; false if it is an update
+  // count or there are no results 先不用这个返回值判断是否成功插入
+  try
+  {
+    sql_pstmt->execute();
+  }
+  catch (const sql::SQLException &e)
+  {
+    LOG_ERROR("[%s] SQLException: %s", LOG_TAG, e.what());
+    return false;
+  }
+  catch (const std::exception &e)
+  {
+    LOG_ERROR("[%s] Exception: %s", LOG_TAG, e.what());
+    return false;
+  }
+
+  // 获取最近插入的secret_id 返回给前端
+  try
+  {
+    std::shared_ptr<sql::PreparedStatement> sql_pstmt_get_id(
+        conn.conn->prepareStatement(
+            "select last_insert_id() as secret_id;"));
+
+    std::shared_ptr<sql::ResultSet> sql_result(
+        sql_pstmt_get_id->executeQuery());
+
+    sql_result->next();
+    result["result_info"] = Json::object{
+        {"secret_id", sql_result->getString("secret_id").asStdString()}};
+  }
+  catch (const sql::SQLException &e)
+  {
+    LOG_ERROR("[%s] SQLException: %s", LOG_TAG, e.what());
+    return false;
+  }
+  catch (const std::exception &e)
+  {
+    LOG_ERROR("[%s] Exception: %s", LOG_TAG, e.what());
+    return false;
+  }
+
+  result["action_result"] = true;
+  buffer.write_buffer(((Json)result).dump());
+
+  LOG_DEBUG("[%s] User[id:%d] insert successfully!", LOG_TAG, user_id);
+  return true;
 }
 
-bool router_update(const HttpRequest& request, Buffer& buffer) { return false; }
+bool router_query(const HttpRequest &request, Buffer &buffer)
+{
+  Json::object result;
+  string action_token =
+      request.query_post("action_info")["action_token"].string_value();
+  if (online_lists_token2id.count(action_token) == 0)
+  {
+    // 用户未登录
+    result["action_result"] = false;
+    result["result_info"] = Json::object{{"error_info", "Not logged in"}};
+    buffer.write_buffer(((Json)result).dump());
 
-bool router_delete(const HttpRequest& request, Buffer& buffer) { return false; }
+    LOG_DEBUG("[%s] User(action_token:[%s]) query failed!(not logged in)",
+              LOG_TAG, action_token.data());
+    return true;
+  }
+  // 创建数据库连接
+  MiniServer::SQLConn conn;
+  if (!conn.is_valid())
+  {
+    LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
+    // 直接返回 500 状态码
+    return false;
+  }
+
+  // 准备query语句
+  uint64_t user_id = online_lists_token2id[action_token];
+
+  std::shared_ptr<sql::PreparedStatement> sql_pstmt(
+      conn.conn->prepareStatement("select * from secrets where user_id=?"));
+  sql_pstmt->setUInt64(1, user_id);
+
+  std::shared_ptr<sql::ResultSet> sql_result(sql_pstmt->executeQuery());
+
+  std::vector<secret> secrets;
+  while (sql_result->next())
+  {
+    secrets.push_back(secret(sql_result->getString("secret_id").asStdString(),
+                             sql_result->getString("time").asStdString(),
+                             sql_result->getString("secret").asStdString()));
+                             
+  }
+  result["action_result"] = true;
+  result["result_info"] = Json::object{{"secrets", Json(secrets)}};
+  buffer.write_buffer(((Json)result).dump());
+
+  LOG_DEBUG("[%s] User[id:%d] query successfully!", LOG_TAG, user_id);
+  return true;
+}
+
+bool router_random_query(const HttpRequest &request, Buffer &buffer)
+{
+  Json::object result;
+  string action_token =
+      request.query_post("action_info")["action_token"].string_value();
+  if (online_lists_token2id.count(action_token) == 0)
+  {
+    // 用户未登录
+    result["action_result"] = false;
+    result["result_info"] = Json::object{{"error_info", "Not logged in"}};
+    buffer.write_buffer(((Json)result).dump());
+
+    LOG_DEBUG("[%s] User(action_token:[%s]) random_query failed!(not logged in)",
+              LOG_TAG, action_token.data());
+    return true;
+  }
+  // 创建数据库连接
+  MiniServer::SQLConn conn;
+  if (!conn.is_valid())
+  {
+    LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
+    // 直接返回 500 状态码
+    return false;
+  }
+
+  // 准备query语句
+  uint64_t user_id = online_lists_token2id[action_token];
+
+  std::shared_ptr<sql::PreparedStatement> sql_pstmt(
+      conn.conn->prepareStatement("select * from secrets natural join users where user_id!=? order by RAND() limit 1;"));
+  sql_pstmt->setUInt64(1, user_id);
+
+  std::shared_ptr<sql::ResultSet> sql_result(sql_pstmt->executeQuery());
+
+  std::vector<secret> secrets;
+  while (sql_result->next())
+  {
+    secrets.push_back(secret(sql_result->getString("secret_id").asStdString(),
+                             sql_result->getString("time").asStdString(),
+                             sql_result->getString("secret").asStdString(),
+                             sql_result->getString("user_name").asStdString()
+                             ));
+  }
+  result["action_result"] = true;
+  result["result_info"] = Json::object{{"secrets", Json(secrets)}};
+  buffer.write_buffer(((Json)result).dump());
+
+  LOG_DEBUG("[%s] User[id:%d] random_query successfully!", LOG_TAG, user_id);
+  return true;
+}
+
+bool router_update(const HttpRequest &request, Buffer &buffer)
+{
+  Json::object result;
+  string action_token =
+      request.query_post("action_info")["action_token"].string_value();
+  if (online_lists_token2id.count(action_token) == 0)
+  {
+    // 用户未登录
+    result["action_result"] = false;
+    result["result_info"] = Json::object{{"error_info", "Not logged in"}};
+    buffer.write_buffer(((Json)result).dump());
+
+    LOG_DEBUG("[%s] User(action_token:[%s]) update failed!(not logged in)",
+              LOG_TAG, action_token.data());
+    return true;
+  }
+  // 创建数据库连接
+  MiniServer::SQLConn conn;
+  if (!conn.is_valid())
+  {
+    LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
+    // 直接返回 500 状态码
+    return false;
+  }
+
+  // 准备update语句
+  uint64_t user_id = online_lists_token2id[action_token];
+  string time = request.query_post("action_info")["time"].string_value();
+  string secret = request.query_post("action_info")["secret"].string_value();
+  uint64_t secret_id = request.query_post("action_info")["secret_id"].int_value();
+
+  std::shared_ptr<sql::PreparedStatement> sql_pstmt(
+      conn.conn->prepareStatement("update secrets set secret=? time=? where secret_id=?;"));
+  sql_pstmt->setString(1, secret);
+  sql_pstmt->setString(2, time);
+  sql_pstmt->setUInt64(3, secret_id);
+
+  try
+  {
+    sql_pstmt->execute();
+  }
+  catch (const sql::SQLException &e)
+  {
+    LOG_ERROR("[%s] SQLException: %s", LOG_TAG, e.what());
+    return false;
+  }
+  catch (const std::exception &e)
+  {
+    LOG_ERROR("[%s] Exception: %s", LOG_TAG, e.what());
+    return false;
+  }
+
+  result["action_result"] = true;
+  result["result_info"] = Json::object{};
+  buffer.write_buffer(((Json)result).dump());
+
+  LOG_DEBUG("[%s] User[id:%d] update successfully!", LOG_TAG, user_id);
+  return true;
+}
+
+bool router_delete(const HttpRequest &request, Buffer &buffer)
+{
+  Json::object result;
+  string action_token =
+      request.query_post("action_info")["action_token"].string_value();
+  if (online_lists_token2id.count(action_token) == 0)
+  {
+    // 用户未登录
+    result["action_result"] = false;
+    result["result_info"] = Json::object{{"error_info", "Not logged in"}};
+    buffer.write_buffer(((Json)result).dump());
+
+    LOG_DEBUG("[%s] User(action_token:[%s]) update failed!(not logged in)",
+              LOG_TAG, action_token.data());
+    return true;
+  }
+  // 创建数据库连接
+  MiniServer::SQLConn conn;
+  if (!conn.is_valid())
+  {
+    LOG_INFO("[%s] Get SQL connection failed!", LOG_TAG);
+    // 直接返回 500 状态码
+    return false;
+  }
+
+  
+  // 准备delete语句
+  uint64_t secret_id = atoi(request.query_post("action_info")["secret_id"].string_value().data());
+  std::shared_ptr<sql::PreparedStatement> sql_pstmt(
+      conn.conn->prepareStatement("delete from secrets where secret_id = ?;"));
+  sql_pstmt->setUInt64(1, secret_id);
+  
+  try
+  {
+    sql_pstmt->execute();
+  }
+  catch (const sql::SQLException &e)
+  {
+    LOG_ERROR("[%s] SQLException: %s", LOG_TAG, e.what());
+    return false;
+  }
+  catch (const std::exception &e)
+  {
+    LOG_ERROR("[%s] Exception: %s", LOG_TAG, e.what());
+    return false;
+  }
+  
+  result["action_result"] = true;
+  result["result_info"] = Json::object{{"secret_id",int(secret_id)}};
+  buffer.write_buffer(((Json)result).dump());
+  
+  uint64_t user_id = online_lists_token2id[action_token];
+  LOG_DEBUG("[%s] User[id:%d] delete successfully!", LOG_TAG, user_id);
+  return true;
+}

@@ -14,19 +14,21 @@ using MiniServer::Buffer;
 using MiniServer::HttpRequest;
 using std::string;
 
-struct task {
-  string task_id_;
+struct secret {
+  public:
+  string secret_id_;
   string time_;
-  string task_;
-  string priority_;
-  task(const string& task_id, const string& time, const string& task,
-       const string& priority)
-      : task_id_(task_id), time_(time), task_(task), priority_(priority) {}
+  string secret_;
+  string user_name_;
+  secret(const string& secret_id, const string& time, const string& secret,
+    const string& user_name="")
+      : secret_id_(secret_id), time_(time), secret_(secret), user_name_(user_name){}
   Json to_json() const {
-    return Json::object{{"task_id", task_id_},
+    return Json::object{{"secret_id", secret_id_},
                         {"time", time_},
-                        {"task", task_},
-                        {"priority", priority_}};
+                        {"secret", secret_},
+                        {"user_name", user_name_},
+                        };
   }
 };
 
