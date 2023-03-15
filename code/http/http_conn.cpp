@@ -30,8 +30,6 @@ void HttpConn::init(int sock_fd, const sockaddr_in sock_addr) {
   // request 清理
   
   request_.clear();
-  request_.sock_fd_ = sock_fd_;
-  request_.sock_addr_ = sock_addr_;
   LOG_INFO("[%s] Client[%d](%s:%d) in, userCount:%d", LOG_TAG, sock_fd_,
            get_ip().data(), get_port(), (int)user_count_);
 }

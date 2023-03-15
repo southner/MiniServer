@@ -27,8 +27,6 @@ arpa/inet.h
 -
 unistd.h
 -
-unistd.h
--
 atomic
 -
 string
@@ -44,10 +42,6 @@ log/log.h
 
 ../code/http/http_request.h
 error.h
--
-arpa/inet.h
--
-unistd.h
 -
 regex
 -
@@ -189,8 +183,6 @@ arpa/inet.h
 -
 unistd.h
 -
-unistd.h
--
 atomic
 -
 string
@@ -204,12 +196,12 @@ http_response.h
 log/log.h
 /root/workspace/MiniServer/code/http/log/log.h
 
+/root/workspace/MiniServer/code/http/http_request.cpp
+http_request.h
+/root/workspace/MiniServer/code/http/http_request.h
+
 /root/workspace/MiniServer/code/http/http_request.h
 error.h
--
-arpa/inet.h
--
-unistd.h
 -
 regex
 -
@@ -225,6 +217,10 @@ json11/json11.hpp
 /root/workspace/MiniServer/code/http/json11/json11.hpp
 log/log.h
 /root/workspace/MiniServer/code/http/log/log.h
+
+/root/workspace/MiniServer/code/http/http_response.cpp
+http_response.h
+/root/workspace/MiniServer/code/http/http_response.h
 
 /root/workspace/MiniServer/code/http/http_response.h
 sys/mman.h
