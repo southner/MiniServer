@@ -136,14 +136,13 @@ HttpRequest::PARSE_STATE HttpRequest::parse_request_line(const string &line) {
   std::regex pattern("^([^ ]*) ([^ ]*) HTTP/([^ ]*)$");
   std::smatch sub_match;
 
-  if (std::regex_match(line, sub_match, pattern)) {
+  bool result = std::regex_match(line, sub_match, pattern);
+  if (result) {
     method_ = sub_match[1];
     path_ = sub_match[2];
     version_ = sub_match[3];
-    LOG_ERROR("[%s]normal [%s]!", LOG_TAG,line.data());
     return PARSE_STATE::PS_HEADERS;
   }
-  LOG_ERROR("[%s] [%s]!", LOG_TAG,line.data());
   LOG_ERROR("[%s] Parse request line error!", LOG_TAG);
   return PARSE_STATE::PS_ERROR;
 }
@@ -157,11 +156,11 @@ HttpRequest::PARSE_STATE HttpRequest::parse_header(const string &line) {
   }
   std::regex pattern_header("^([^:]*): ?(.*)$");
   std::smatch match_header;
+  
   if (std::regex_match(line, match_header, pattern_header)) {
     header_[match_header[1]] = match_header[2];
     return PARSE_STATE::PS_HEADERS;
   }
-
   // 解析错误
   return PARSE_STATE::PS_ERROR;
 }
@@ -171,14 +170,12 @@ HttpRequest::PARSE_STATE HttpRequest::parse_body(const string &line) {
     // 只解析json格式请求
     string error;
     post_ = Json::parse(line, error);
-
     if (error != "") {
       // 解析发生错误
       LOG_ERROR("[%s] Body(json) parse error: %s", LOG_TAG, error.data());
       return PARSE_STATE::PS_ERROR;
     }
   }
-
   return PARSE_STATE::PS_FINISH;
 }
 }  // namespace MiniServer

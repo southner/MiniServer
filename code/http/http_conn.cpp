@@ -14,7 +14,8 @@ HttpConn::HttpConn() {
   is_closed_ = true;
 }
 
-HttpConn::~HttpConn() { close_conn(); }
+HttpConn::~HttpConn() { 
+  close_conn(); }
 
 void HttpConn::init(int sock_fd, const sockaddr_in sock_addr) {
   assert(sock_fd > 0);
@@ -27,8 +28,10 @@ void HttpConn::init(int sock_fd, const sockaddr_in sock_addr) {
   read_buffer_.clear();
   write_buffer_.clear();
   // request 清理
+  
   request_.clear();
-
+  request_.sock_fd_ = sock_fd_;
+  request_.sock_addr_ = sock_addr_;
   LOG_INFO("[%s] Client[%d](%s:%d) in, userCount:%d", LOG_TAG, sock_fd_,
            get_ip().data(), get_port(), (int)user_count_);
 }
@@ -102,6 +105,8 @@ ssize_t HttpConn::write(int *errno_) {
 }
 
 bool HttpConn::process() {
+  //修复bug 貌似一个conn会被多次调用parse读取buffer内容，使用conn内部锁加锁
+  // std::lock_guard<std::mutex> time_lock(mtx_);
   request_.init();
   if (read_buffer_.get_readable_bytes() <= 0) {
     return false;

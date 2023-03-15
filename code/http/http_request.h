@@ -1,7 +1,6 @@
 #pragma once
 
 #include <error.h>
-
 #include <regex>
 #include <string>
 #include <unordered_map>
@@ -30,7 +29,9 @@ class HttpRequest {
     PR_INCOMPLETE,
     PR_SUCCESS,
   };
-  HttpRequest() { init(); }
+  HttpRequest() {
+    init();
+  }
   ~HttpRequest() = default;
 
   void init();
@@ -67,6 +68,8 @@ class HttpRequest {
 
   std::unordered_map<string, string> header_;
   Json post_;
+
+  
 };
 
 }  // namespace MiniServer

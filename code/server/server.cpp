@@ -409,6 +409,7 @@ void Server::on_write_(HttpConn* client) {
               client->get_fd());
 
     deal_close_conn_(client);
+    return;
   } else if (ret < 0) {
     if (errno_ == EAGAIN) {
       // 暂时不可写,等待机会再写
@@ -419,7 +420,6 @@ void Server::on_write_(HttpConn* client) {
   }
 
   LOG_DEBUG("[%s] Write request failed![%d].", LOG_TAG, client->get_fd());
-
   deal_close_conn_(client);
   // 传输完成
   // mux_->mod_fd(client->get_fd(), conn_events_);
@@ -457,6 +457,7 @@ void Server::close_conn_(HttpConn* client) {
     return;
   }
   int ret = mux_->del_fd(client->get_fd());
+  LOG_WARN("[%s] connect is close due to triggered by timer[%d].", LOG_TAG,client->get_fd());
   client->close_conn();
 }
 }  // namespace MiniServer

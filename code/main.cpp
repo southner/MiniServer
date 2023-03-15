@@ -11,7 +11,7 @@ int main() {
   server.register_static_router("/picture", "/picture.html");
 
   // 注册动态路由
-
+  
   server.register_dynamic_router("/action/login", router_login);
   server.register_dynamic_router("/action/logout", router_logout);
   server.register_dynamic_router("/action/register", router_register);
@@ -20,6 +20,6 @@ int main() {
   server.register_dynamic_router("/action/random_query", router_random_query);
   server.register_dynamic_router("/action/update", router_update);
   server.register_dynamic_router("/action/delete", router_delete);
-
+  
   server.start();
 }
